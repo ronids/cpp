@@ -5,8 +5,8 @@ enable_language(CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(CMAKE_CXX_COMPILER "/pathto/g++" )
-set(CMAKE_C_COMPILER "/pathto/gcc" )
+set(CMAKE_CXX_COMPILER "/usr/bin/g++" )
+set(CMAKE_C_COMPILER "/usr/bin//gcc" )
 
 # Adding -Wall option
 add_compile_options(-Wall -Wextra)
