@@ -3,8 +3,9 @@
 #include "addition.h"
 #include "division.h"
 #include "print_result.h"
+#include <unistd.h>
 
-main(){
+int main(){
 
 float first_no, second_no, result_add, result_div;
 
@@ -12,6 +13,8 @@ std::cout<< "Enter first number\t";
 std::cin>> first_no;
 std::cout<< "Enter second number\t";
 std::cin>> second_no;
+
+usleep(60);
 
 result_add = addition(first_no , second_no);
 result_div = division(first_no , second_no);
