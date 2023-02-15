@@ -7,7 +7,7 @@
 
 TEST(MultiplyTests, Additioning)
 {
-    const auto expected = 6;
+    const auto expected = 5;
     const auto actual = addition(3, 2);
     ASSERT_EQ(actual, expected);
 }
