@@ -1,27 +1,29 @@
-cmake_minimum_required(VERSION 3.11)
+include(FetchContent)
 
 # Adding -Wall option
 add_compile_options(-Wall -Wextra)
-
-# default to Debug builds
 set(CMAKE_BUILD_TYPE_INIT Debug)
-
-
-# testing binary
-add_executable(cpp_test TestMain.cpp)
-target_link_libraries(calculator PUBLIC my_math  my_print)
-
-
-# enable testing functionality
 enable_testing()
 
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG        release-1.11.0
+)
+FetchContent_MakeAvailable(googletest)
+add_library(GTest::GTest INTERFACE IMPORTED)
+target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
-# define tests
+add_executable(test TestMain.cpp)
 
-add_test(
+target_link_libraries(test PUBLIC 
+GTest::GTest 
+my_math my_print)
 
-  NAME cpp_test
+add_test(multiply_gtest test)
 
-  COMMAND $<TARGET_FILE:cpp_test>
 
-  )
+
+
+
+

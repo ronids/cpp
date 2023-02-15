@@ -1,21 +1,26 @@
 #include <iostream>
+#include <gtest/gtest.h>
 
-#include "addition.h"
-#include "division.h"
-#include "print_result.h"
-#include <unistd.h>
+#include "../my_math/include/addition.h"
+#include "../my_math/include/division.h"
+#include "../my_print/include/print_result.h"
 
-int main(){
+TEST(MultiplyTests, Additioning)
+{
+    const auto expected = 6;
+    const auto actual = addition(3, 2);
+    ASSERT_EQ(actual, expected);
+}
 
-float first_no, second_no, result_add, result_div;
+TEST(MultiplyTests, Divisioning)
+{
+    const auto expected = 3;
+    const auto actual = division(6, 2);
+    ASSERT_EQ(actual, expected);
+}
 
-result_add = addition(first_no , second_no);
-result_div = division(first_no , second_no);
-
-print_result("Addition", result_add);
-print_result("Division", result_div);
-//std::cout<< "Addition result:\t"<< result_add<< "\nDivision result:\t"<< result_div<< "\n";
-
-return 0;
-
+int main(int argc, char** argv)
+{
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
