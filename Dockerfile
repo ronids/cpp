@@ -28,4 +28,5 @@ RUN apt-get update && apt-get install -y build-essential
 RUN chown jenkins:jenkins /opt/maven;
 ENV MAVEN_HOME=/opt/mvn
 USER jenkins
+EXPOSE 7280
 
