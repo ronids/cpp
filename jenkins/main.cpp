@@ -4,7 +4,7 @@
 #include "division.h"
 #include "print_result.h"
 
-int main(){
+main(){
 
 float first_no, second_no, result_add, result_div;
 
